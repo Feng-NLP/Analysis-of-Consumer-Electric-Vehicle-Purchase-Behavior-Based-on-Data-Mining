@@ -1,0 +1,170 @@
+# Veusz saved document (version 3.4)
+# Saved at 2022-04-13T14:39:03.059659
+
+SetCompatLevel(1)
+AddImportPath('D:\\桌面\\编辑版\\试验\\图')
+ImportString('SVM(numeric)','''
+9.422895e-01
+9.672447e-01
+9.709302e-01
+9.728155e-01
+9.794721e-01
+9.783465e-01
+9.783465e-01
+9.783465e-01
+9.770230e-01
+9.719439e-01
+9.719439e-01
+''')
+ImportString('logistics(numeric)','''
+8.980355e-01
+8.980355e-01
+9.120151e-01
+9.169811e-01
+9.149338e-01
+9.132075e-01
+9.204545e-01
+9.248335e-01
+9.239544e-01
+9.180952e-01
+9.217557e-01
+''')
+ImportString('rf(numeric)','''
+9.555126e-01
+9.636015e-01
+9.692898e-01
+9.702209e-01
+9.702780e-01
+9.732314e-01
+9.691715e-01
+9.674329e-01
+9.682997e-01
+9.730250e-01
+9.720885e-01
+''')
+ImportString('xgb(numeric)','''
+9.582119e-01
+9.662488e-01
+9.719807e-01
+9.691120e-01
+9.663138e-01
+9.739130e-01
+9.701636e-01
+9.682387e-01
+9.730250e-01
+9.730250e-01
+9.769231e-01
+''')
+ImportString('`特征个数`(numeric)','''
+5.000000e+00
+6.000000e+00
+7.000000e+00
+8.000000e+00
+9.000000e+00
+1.000000e+01
+1.100000e+01
+1.200000e+01
+1.300000e+01
+1.400000e+01
+1.500000e+01
+''')
+Set('colorTheme', 'default-latest')
+Set('StyleSheet/axis-function/autoRange', 'next-tick')
+Add('page', name='page1', autoadd=False)
+To('page1')
+Add('graph', name='graph1', autoadd=False)
+To('graph1')
+Set('leftMargin', '1.7cm')
+Set('rightMargin', '0.2cm')
+Set('topMargin', '0.2cm')
+Set('bottomMargin', '1.7cm')
+Add('axis', name='x', autoadd=False)
+To('x')
+Set('hide', False)
+Set('label', '特征个数')
+Set('min', 4.0)
+Set('max', 16.0)
+Set('log', False)
+Set('mode', 'numeric')
+Set('autoMirror', False)
+Set('reflect', False)
+Set('outerticks', True)
+Set('Line/width', '1pt')
+Set('Line/hide', True)
+Set('Label/font', '宋体')
+Set('Label/hide', False)
+Set('Label/offset', '0pt')
+Set('TickLabels/hide', False)
+Set('MajorTicks/hide', True)
+Set('MinorTicks/hide', True)
+Set('GridLines/hide', True)
+To('..')
+Add('axis', name='y', autoadd=False)
+To('y')
+Set('hide', False)
+Set('label', '分类效果（F1）')
+Set('min', 0.88)
+Set('max', 1.0)
+Set('direction', 'vertical')
+Set('Line/width', '1pt')
+Set('Line/hide', True)
+Set('Label/font', '宋体')
+Set('Label/hide', False)
+Set('TickLabels/hide', False)
+Set('MajorTicks/width', '0.5pt')
+Set('MajorTicks/hide', False)
+Set('MajorTicks/length', '6pt')
+Set('MinorTicks/hide', True)
+Set('GridLines/hide', True)
+Set('GridLines/onTop', False)
+To('..')
+Add('xy', name='xy1', autoadd=False)
+To('xy1')
+Set('marker', 'diamond')
+Set('markerSize', '3pt')
+Set('color', 'auto')
+Set('xData', '特征个数')
+Set('yData', 'SVM')
+Set('hide', False)
+Set('key', 'SVM')
+Set('PlotLine/steps', 'off')
+Set('PlotLine/interpType', 'linear')
+Set('PlotLine/width', '1pt')
+Set('PlotLine/hide', False)
+Set('MarkerLine/width', '0.5pt')
+Set('MarkerLine/scaleLine', True)
+Set('MarkerLine/hide', False)
+Set('MarkerFill/hide', False)
+Set('FillBelow/hideerror', False)
+Set('Label/posnHorz', 'centre')
+Set('Label/hide', False)
+To('..')
+Add('xy', name='xy2', autoadd=False)
+To('xy2')
+Set('xData', '特征个数')
+Set('yData', 'logistics')
+Set('key', 'Logistic')
+Set('labels', '')
+Set('scalePoints', [])
+Set('Color/points', [])
+To('..')
+Add('xy', name='xy3', autoadd=False)
+To('xy3')
+Set('marker', 'square')
+Set('xData', '特征个数')
+Set('yData', 'rf')
+Set('key', 'RandomForest')
+To('..')
+Add('xy', name='xy4', autoadd=False)
+To('xy4')
+Set('marker', 'pentagon')
+Set('xData', '特征个数')
+Set('yData', 'xgb')
+Set('key', 'XGBoost')
+To('..')
+Add('key', name='key1', autoadd=False)
+Add('key', name='key2', autoadd=False)
+Add('key', name='key3', autoadd=False)
+Add('key', name='key4', autoadd=False)
+To('..')
+To('..')
