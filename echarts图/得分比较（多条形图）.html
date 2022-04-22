@@ -1,0 +1,245 @@
+<!--
+    THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/zh/editor.html?c=bar-simple
+-->
+<!DOCTYPE html>
+<html style="height: 100%">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body style="height: 100%; margin: 0">
+        <div id="container" style="height: 100%"></div>
+
+        
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/dist/echarts.min.js"></script>
+        <!-- Uncomment this line if you want to dataTool extension
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/dist/extension/dataTool.min.js"></script>
+        -->
+        <!-- Uncomment this line if you want to use gl extension
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+        -->
+        <!-- Uncomment this line if you want to echarts-stat extension
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+        -->
+        <!-- Uncomment this line if you want to use map
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/map/js/china.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/map/js/world.js"></script>
+        -->
+        <!-- Uncomment these two lines if you want to use bmap extension
+        <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=<Your Key Here>"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@{{version}}/dist/extension/bmap.min.js"></script>
+        -->
+
+        <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+
+var option;
+
+
+
+const posList = [
+  'left',
+  'right',
+  'top',
+  'bottom',
+  'inside',
+  'insideTop',
+  'insideLeft',
+  'insideRight',
+  'insideBottom',
+  'insideTopLeft',
+  'insideTopRight',
+  'insideBottomLeft',
+  'insideBottomRight'
+];
+app.configParameters = {
+  rotate: {
+    min: -90,
+    max: 90
+  },
+  align: {
+    options: {
+      left: 'left',
+      center: 'center',
+      right: 'right'
+    }
+  },
+  verticalAlign: {
+    options: {
+      top: 'top',
+      middle: 'middle',
+      bottom: 'bottom'
+    }
+  },
+  position: {
+    options: posList.reduce(function (map, pos) {
+      map[pos] = pos;
+      return map;
+    }, {})
+  },
+  distance: {
+    min: 0,
+    max: 100
+  }
+};
+app.config = {
+  rotate: 90,
+  align: 'left',
+  verticalAlign: 'middle',
+  position: 'insideBottom',
+  distance: 15,
+  onChange: function () {
+    const labelOption = {
+      rotate: app.config.rotate,
+      align: app.config.align,
+      verticalAlign: app.config.verticalAlign,
+      position: app.config.position,
+      distance: app.config.distance
+    };
+    myChart.setOption({
+      series: [
+        {
+          label: labelOption
+        },
+        {
+          label: labelOption
+        },
+        {
+          label: labelOption
+        }
+      ]
+    });
+  }
+};
+const labelOption = {
+  show: true,
+  position: app.config.position,
+  distance: app.config.distance,
+  align: app.config.align,
+  verticalAlign: app.config.verticalAlign,
+  rotate: app.config.rotate,
+  formatter: '{c}', //  {name|{a}}',
+  fontSize: 20,
+  rich: {
+    name: {}
+  }
+};
+option = {
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'shadow'
+    }
+  },
+  legend: {
+    data: ['品牌1', '品牌2', '品牌3'],
+    textStyle: {
+      //图例字体大小
+      fontSize: 20,
+    },
+    //图例大小
+    itemHeight: 20,
+    //图例滚动显示
+    //type: 'scroll',
+    //图例纵向显示
+    //orient: 'vertical',
+    //图例位置
+    //right: 30,
+    top: 30,
+    //bottom: 30,
+  },
+  toolbox: {
+    show: true,
+    orient: 'vertical',
+    left: 'right',
+    top: 'center',
+    feature: {
+      mark: { show: true },
+      dataView: { show: true, readOnly: false },
+      magicType: { show: true, type: ['line', 'bar', 'stack'] },
+      restore: { show: true },
+      saveAsImage: { show: true }
+    }
+  },
+  xAxis: [
+    {
+      type: 'category',
+      axisTick: { show: false },
+      axisLabel: {
+        	interval:0,
+        	rotate:18,//此行与上一行作用在于使得X轴坐标倾斜，避免X轴坐标较多无法显示
+            inside: false,//本来是true，改为false后将图形中的字移到图形外边
+            textStyle: {
+                color: 'black'//修改坐标轴字体颜色
+            },
+            fontSize:20//调整坐标轴字体大小
+        },
+      data: ['电池技术性能得分', '舒适性得分', '经济性得分', '安全性表现得分', '动力性表现得分','驾驶操控性表现得分','外观内饰得分','配置与质量品质得分']
+      },
+      
+  ],
+  yAxis: [
+    {
+      type: 'value',
+          axisLine: { //轴线
+          show: true
+  },
+       axisTick: {
+          show: true,  //坐标轴刻度线
+          inside:true//坐标轴刻度向内
+        },
+      splitLine:{ //网格线
+          show:false
+        },
+      min:72,
+      max:80,
+      interval:1,
+      axisLabel: {
+            textStyle: {
+                color: 'black'//修改坐标轴字体颜色
+            },
+            fontSize:20//调整坐标轴字体大小
+        }
+    }
+  ],
+  series: [
+    {
+      name: '品牌1',
+      type: 'bar',
+      barGap: 0,
+      label: labelOption,
+      emphasis: {
+        focus: 'series'
+      },
+      data: [77.8875, 78.5391, 76.0432, 79.3067, 77.7753, 78.1401,78.4767, 78.2415]
+    },
+    {
+      name: '品牌2',
+      type: 'bar',
+      label: labelOption,
+      emphasis: {
+        focus: 'series'
+      },
+      data: [78.0057,77.9434, 75.9622, 78.7110,	77.0322,	77.8357,	77.7967,	77.3245]
+    },
+    {
+      name: '品牌3',
+      type: 'bar',
+      label: labelOption,
+      emphasis: {
+        focus: 'series'
+      },
+      data: [77.2024,	77.4573,	74.6812,	77.9604,	75.9335,	77.1587,	77.6813,	77.3497]
+    }
+  ]
+};
+
+if (option && typeof option === 'object') {
+    myChart.setOption(option);
+}
+
+        </script>
+    </body>
+</html>
+    

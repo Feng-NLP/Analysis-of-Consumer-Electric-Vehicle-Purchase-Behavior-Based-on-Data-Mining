@@ -1,0 +1,126 @@
+<!--
+    THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/zh/editor.html?c=bar-simple
+-->
+<!DOCTYPE html>
+<html style="height: 100%">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body style="height: 100%; margin: 0">
+        <div id="container" style="height: 100%"></div>
+
+        
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/dist/echarts.min.js"></script>
+        <!-- Uncomment this line if you want to dataTool extension
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/dist/extension/dataTool.min.js"></script>
+        -->
+        <!-- Uncomment this line if you want to use gl extension
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+        -->
+        <!-- Uncomment this line if you want to echarts-stat extension
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+        -->
+        <!-- Uncomment this line if you want to use map
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/map/js/china.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/map/js/world.js"></script>
+        -->
+        <!-- Uncomment these two lines if you want to use bmap extension
+        <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=<Your Key Here>"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@{{version}}/dist/extension/bmap.min.js"></script>
+        -->
+
+        <script type="text/javascript">
+var dom = document.getElementById("container");
+var myChart = echarts.init(dom);
+var app = {};
+
+var option;
+
+
+
+var option;
+
+
+
+option = {
+  title: {
+    text: ' '
+  },
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'shadow'
+    }
+  },
+  legend: {},
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '3%',
+    containLabel: true
+  },
+  xAxis: {
+    type: 'value',
+    axisLabel: {
+        	interval:0,
+        	rotate:0,//此行与上一行作用在于使得X轴坐标倾斜，避免X轴坐标较多无法显示
+            inside: false,//本来是true，改为false后将图形中的字移到图形外边
+            textStyle: {
+                color: 'black'//修改坐标轴字体颜色
+            },
+            fontSize:25//调整坐标轴字体大小
+        },
+    splitLine:{ //网格线
+          show:false
+        },
+    boundaryGap: [0, 0.01]
+  },
+  yAxis: {
+    type: 'category',
+    axisLabel: {
+        	interval:0,
+        	rotate:0,//此行与上一行作用在于使得X轴坐标倾斜，避免X轴坐标较多无法显示
+            inside: false,//本来是true，改为false后将图形中的字移到图形外边
+            textStyle: {
+                color: 'black'//修改坐标轴字体颜色
+            },
+            fontSize:25//调整坐标轴字体大小
+        },
+    axisTick: {
+          show: false  //坐标轴刻度线
+        },
+    splitLine:{ //网格线
+          show:false
+        },
+    data: ['子女数','工作年限','驾龄','户口类型','最高学历','职位类型','单位性质','居住区域类型','家庭成员数','居住时间','家庭年收入','品牌类型','动力性表现得分','车贷占收入比','房贷占收入比']
+  },
+  series: [
+    {
+      //name: ,
+      type: 'bar',
+      data: [0.03054, 0.03469, 0.0349, 0.03975, 0.04071, 0.04237, 0.04541, 0.04626, 0.04885, 0.05053, 0.0576, 0.06093,0.10002, 0.14971,0.21772],
+      itemStyle:{
+        normal:{
+          label:{
+            show:true,
+            position:'right',
+            textStyle:{
+              fontSize:25,
+              color:'black'
+            }
+          }
+        }
+      }
+      
+    }
+  ]
+};
+
+if (option && typeof option === 'object') {
+    myChart.setOption(option);
+}
+
+        </script>
+    </body>
+</html>
+    
